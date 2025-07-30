@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>WebRTC Video Call Demo</h2>
+    <video id="localVideo" autoplay playsinline muted></video>
+    <video id="remoteVideo" autoplay playsinline></video>
+    <button onclick="start()">Start</button>
+
+    <script>
+        let localStream;
+        let pc1, pc2;
+
+        async function start() {
+            localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+            document.getElementById('localVideo').srcObject = localStream;
+
+            pc1 = new RTCPeerConnection();
+            pc2 = new RTCPeerConnection();
+
+            pc1.onicecandidate = e => pc2.addIceCandidate(e.candidate);
+            pc2.onicecandidate = e => pc1.addIceCandidate(e.candidate);
+
+            pc2.ontrack = e => {
+                document.getElementById('remoteVideo').srcObject = e.streams[0];
+            };
+
+            localStream.getTracks().forEach(track => pc1.addTrack(track, localStream));
+
+            const offer = await pc1.createOffer();
+            await pc1.setLocalDescription(offer);
+            await pc2.setRemoteDescription(offer);
+
+            const answer = await pc2.createAnswer();
+            await pc2.setLocalDescription(answer);
+            await pc1.setRemoteDescription(answer);
+        }
+    </script>
+</body>
+</html>
