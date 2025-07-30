@@ -1,5 +1,6 @@
     // const socket = new WebSocket('ws://localhost:3000');
-    const socket = new WebSocket('ws:https://websoket-signaling.onrender.com');
+    // const socket = new WebSocket('ws://websoket-signaling.onrender.com');
+    const socket = new WebSocket('wss://websoket-signaling.onrender.com');
     let myName = '';
     let localStream, peer;
     let currentCall = null;
