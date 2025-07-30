@@ -46,3 +46,16 @@
       font-size: 16px;
       cursor: pointer;
     }
+    @media screen and (max-width: 600px) {
+      video {
+        width: 100%;
+      }
+      body {
+        padding: 10px;
+      }
+      input, button {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      
+    }
