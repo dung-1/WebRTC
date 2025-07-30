@@ -1,0 +1,48 @@
+  body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px;
+      font-size: 16px;
+    }
+    #userList {
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    .user-item {
+      margin: 5px 0;
+    }
+    .user-item span {
+      font-weight: bold;
+    }
+    .user-item button {
+      margin-left: 10px;
+    }
+    video {
+      width: 45%;
+      margin: 10px;
+      border: 2px solid #ccc;
+    }
+    #incomingCall {
+      background-color: #fff8dc;
+      border: 1px solid #f0c040;
+      padding: 10px;
+      margin-bottom: 15px;
+      display: none;
+    }
+    #endCallBtn {
+      display: none;
+      padding: 10px;
+      background-color: red;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
